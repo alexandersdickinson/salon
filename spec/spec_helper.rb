@@ -14,7 +14,13 @@ RSpec.configure() do |config|
 end
 
 @@create_client = lambda do |attributes|
-  base = {:last_name => '', :first_name => '', :stylist_id => nil, :id => nil}
+  base = {:last_name => '', :first_name => '', :stylist_id => 0, :id => nil}
   base.merge!(attributes)
   Client.new(base)
+end
+
+@@create_stylist = lambda do |attributes|
+  base = {:last_name => '', :first_name => '', :client_id => 0, :id => nil}
+  base.merge!(attributes)
+  Stylist.new(base)
 end
